@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aitor Azcona | Game Developer & QA Lead</title>
+    <style>
+        :root {
+            --bg-main: #0b0c10;
+            --bg-card: #1f2833;
+            --accent-neon: #00ffcc;
+            --text-light: #f5f6f9;
+            --text-muted: #c5a059;
+            --text-dark: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(11, 12, 16, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #1f2833;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: var(--accent-neon);
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-neon);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #0b0c10 0%, #121620 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--accent-neon);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* Projects Grid Section */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 80px 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-neon);
+            margin: 10px auto 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #2c3540;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-image-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: #121620;
+            border-bottom: 1px solid #2c3540;
+            position: relative;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-neon);
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--accent-neon);
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .project-desc {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Cambiado aquí: ahora se centra el texto del rol */
+        .project-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid #2c3540;
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background-color: #121620;
+            padding: 60px 20px;
+        }
+
+        .skills-display {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-badge {
+            background-color: var(--bg-card);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #2c3540;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+            border-top: 1px solid #1f2833;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero h2 { font-size: 1.4rem; }
+            header { flex-direction: column; gap: 15px; }
+            nav { margin-left: 0; }
+            nav a { margin: 0 10px; }
+            .project-image-container { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">AITOR<span>AZCONA</span></div>
+        <nav>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="about">
+        <h1>Aitor Azcona Zudaire</h1>
+        <h2>Game Developer & QA Lead</h2>
+        <p>Game Developer and QA Lead with 6+ years of experience shipping titles across PC and console. Experienced in gameplay programming, game design, and leading QA processes across Unity and Unreal Engine.</p>
+        <div class="skill-badge" style="border-color: var(--accent-neon);">Alicante, Spain</div>
+    </section>
+
+    <section class="container" id="projects">
+        <h2 class="section-title">Featured Shipped Projects</h2>
+        <div class="projects-grid">
+
+            <!-- PROYECTO 1: eWorlds -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/eworlds.jpg" alt="eWorlds Gameplay" class="project-image">
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Unity / Multiplayer / PC</span>
+                    <h3 class="project-title">eWorlds: A 3D Platformer Adventure</h3>
+                    <p class="project-desc">A multiplayer 3D collectathon featuring cooperative gameplay, PvP mechanics, and full localization support for 12 languages. Released officially on Steam.</p>
+                    <div class="project-meta">
+                        <strong>Role:</strong> QA Lead & Programmer
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 2: Space Party -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/spaceparty.jpg" alt="Space Party Gameplay" class="project-image">
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Nintendo Switch / Local Multiplayer</span>
+                    <h3 class="project-title">Space Party</h3>
+                    <p class="project-desc">A fast-paced local multiplayer party game optimized for the Nintendo Switch ecosystem, supporting seamless play for up to 8 players simultaneously.</p>
+                    <div class="project-meta">
+                        <strong>Role:</strong> Lead Programmer
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 3: SolarGun -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/solargun.jpg" alt="SolarGun Gameplay" class="project-image">
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Steam / Puzzle / First-Person</span>
+                    <h3 class="project-title">SolarGun</h3>
+                    <p class="project-desc">A distinctive first-person puzzle mechanics game published on Steam, achieving a "Very Positive" user review status on the platform.</p>
+                    <div class="project-meta">
+                        <strong>Role:</strong> Game Design Contributor
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROYECTO 4: TFT Overlays -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/tft.jpg" alt="TFT World Championships Production" class="project-image">
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Esports / Live Data / Real-Time</span>
+                    <h3 class="project-title">TFT World Championships</h3>
+                    <p class="project-desc">Developed sophisticated, real-time broadcast overlays for major global esports productions (Dragonlands 2022 & Monster Attack 2023), integrating live API game data natively.</p>
+                    <div class="project-meta">
+                        <strong>Role:</strong> Software Developer
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-display">
+            <div class="skill-badge">Unity</div>
+            <div class="skill-badge">Unreal Engine</div>
+            <div class="skill-badge">C#</div>
+            <div class="skill-badge">C++</div>
+            <div class="skill-badge">Game Design</div>
+            <div class="skill-badge">QA Leadership</div>
+            <div class="skill-badge">JavaScript</div>
+            <div class="skill-badge">HTML / CSS</div>
+            <div class="skill-badge">Project Documentation</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Aitor Azcona Zudaire — aitor1109@gmail.com</p>
+    </footer>
+
+</body>
+</html>
