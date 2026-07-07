@@ -120,6 +120,7 @@
             gap: 30px;
         }
 
+        /* Modificado: Ahora es un enlace en bloque */
         .project-card {
             background-color: var(--bg-card);
             border-radius: 8px;
@@ -128,6 +129,8 @@
             transition: transform 0.3s, border-color 0.3s;
             display: flex;
             flex-direction: column;
+            text-decoration: none; /* Evita el subrayado por ser enlace */
+            color: inherit; /* Mantiene los colores de texto originales */
         }
 
         .project-image-container {
@@ -149,6 +152,7 @@
         .project-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-neon);
+            cursor: pointer;
         }
 
         .project-card:hover .project-image {
@@ -175,6 +179,7 @@
             font-size: 1.4rem;
             margin-bottom: 10px;
             text-align: center;
+            color: var(--text-light); /* Asegura el color blanco del título */
         }
 
         .project-desc {
@@ -185,7 +190,21 @@
             text-align: center;
         }
 
-        /* Cambiado aquí: ahora se centra el texto del rol */
+        /* Estilo para los botones de enlace de la parte inferior */
+        .game-link {
+            display: inline-block;
+            text-align: center;
+            color: var(--accent-neon);
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .game-link:hover {
+            text-decoration: underline;
+        }
+
         .project-meta {
             font-size: 0.85rem;
             color: var(--text-muted);
@@ -258,7 +277,7 @@
         <div class="projects-grid">
 
             <!-- PROYECTO 1: eWorlds -->
-            <div class="project-card">
+            <a href="https://store.steampowered.com/app/2513440" target="_blank" class="project-card">
                 <div class="project-image-container">
                     <img src="images/eworlds.jpg" alt="eWorlds Gameplay" class="project-image">
                 </div>
@@ -266,15 +285,15 @@
                     <span class="project-tag">Unity / Multiplayer / PC</span>
                     <h3 class="project-title">eWorlds: A 3D Platformer Adventure</h3>
                     <p class="project-desc">A multiplayer 3D collectathon featuring cooperative gameplay, PvP mechanics, and full localization support for 12 languages. Released officially on Steam.</p>
+                    <span class="game-link">Steam page →</span>
                     <div class="project-meta">
                         <strong>Role:</strong> QA Lead & Programmer
                     </div>
-                    <a class="game-link" href="https://store.steampowered.com/app/2513440" target="_blank">Steam page →</a>
                 </div>
-            </div>
+            </a>
 
             <!-- PROYECTO 2: Space Party -->
-            <div class="project-card">
+            <a href="https://www.nintendo.com/es-es/Juegos/Programas-descargables-Nintendo-Switch/Space-Party-2165122.html" target="_blank" class="project-card">
                 <div class="project-image-container">
                     <img src="images/spaceparty.jpg" alt="Space Party Gameplay" class="project-image">
                 </div>
@@ -282,15 +301,15 @@
                     <span class="project-tag">Nintendo Switch / Local Multiplayer</span>
                     <h3 class="project-title">Space Party</h3>
                     <p class="project-desc">A fast-paced local multiplayer party game optimized for the Nintendo Switch ecosystem, supporting seamless play for up to 8 players simultaneously.</p>
+                    <span class="game-link">Nintendo eShop →</span>
                     <div class="project-meta">
                         <strong>Role:</strong> Lead Programmer
                     </div>
-                    <a class="game-link" href="https://www.nintendo.com/es-es/Juegos/Programas-descargables-Nintendo-Switch/Space-Party-2165122.html" target="_blank">Nintendo eShop →</a>
                 </div>
-            </div>
+            </a>
 
             <!-- PROYECTO 3: SolarGun -->
-            <div class="project-card">
+            <a href="https://store.steampowered.com/app/553340" target="_blank" class="project-card">
                 <div class="project-image-container">
                     <img src="images/solargun.jpg" alt="SolarGun Gameplay" class="project-image">
                 </div>
@@ -298,15 +317,15 @@
                     <span class="project-tag">Steam / Puzzle / First-Person</span>
                     <h3 class="project-title">SolarGun</h3>
                     <p class="project-desc">A distinctive first-person puzzle mechanics game published on Steam, achieving a "Very Positive" user review status on the platform.</p>
+                    <span class="game-link">Steam page →</span>
                     <div class="project-meta">
                         <strong>Role:</strong> Game Design Contributor
                     </div>
-                    <a class="game-link" href="https://store.steampowered.com/app/553340" target="_blank">Steam page →</a>
                 </div>
-            </div>
+            </a>
 
             <!-- PROYECTO 4: TFT Overlays -->
-            <div class="project-card">
+            <a href="https://liquipedia.net/tft/Dragonlands/Championship" target="_blank" class="project-card">
                 <div class="project-image-container">
                     <img src="images/tft.JPG" alt="TFT World Championships Production" class="project-image">
                 </div>
@@ -314,12 +333,12 @@
                     <span class="project-tag">Esports / Live Data / Real-Time</span>
                     <h3 class="project-title">TFT World Championships</h3>
                     <p class="project-desc">Developed sophisticated, real-time broadcast overlays for major global esports productions (Dragonlands 2022 & Monster Attack 2023), integrating live API game data natively.</p>
+                    <span class="game-link">Competition →</span>
                     <div class="project-meta">
                         <strong>Role:</strong> Software Developer
                     </div>
-                    <a class="game-link" href="https://liquipedia.net/tft/Dragonlands/Championship" target="_blank">Competition →</a>
                 </div>
-            </div>
+            </a>
 
         </div>
     </section>
